@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kolby F. Lacson - Portfolio</title>
+  <meta name="description" content="All about Kolby F. Lacson – personal info, hobbies, education, and selected works in web development and design." />
+
+  <style>
+    :root {
+      --bg: #f9f8ff;
+      --text: #333;
+      --muted: #666;
+      --card: #ffffff;
+      --brand: #6a5acd;
+      --brand-2: #7b68ee;
+      --ink-strong: #3d3356;
+      --surface-accent: #eae6ff;
+      --shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0f0e17;
+      --text: #e6e6e6;
+      --muted: #a0a0a0;
+      --card: #16141f;
+      --brand: #8a7cff;
+      --brand-2: #a498ff;
+      --ink-strong: #d9d4ff;
+      --surface-accent: #211c33;
+      --shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    /* ===== NAVIGATION BAR ===== */
+    header {
+      width: 100%;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding: 15px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--brand);
+    }
+
+    .theme-toggle {
+      margin-left: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+      font-size: 0.95rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .theme-toggle input {
+      width: 42px;
+      height: 24px;
+      appearance: none;
+      background: var(--surface-accent);
+      border-radius: 999px;
+      position: relative;
+      outline: none;
+      box-shadow: inset 0 0 0 2px rgba(0,0,0,0.06);
+      transition: background 0.25s ease;
+    }
+
+    .theme-toggle input::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease;
+    }
+
+    .theme-toggle input:checked {
+      background: var(--brand);
+    }
+
+    .theme-toggle input:checked::after {
+      transform: translateX(18px);
+    }
+
+    /* ===== HERO / HOME SECTION ===== */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: url('images/hero.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    /* Hero slideshow */
+    .hero-slideshow {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero-slideshow img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+      will-change: opacity;
+    }
+
+    .hero-slideshow img.is-active {
+      opacity: 1;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.45);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      padding: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-content .btn {
+      display: inline-block;
+      background-color: var(--brand);
+      color: white;
+      padding: 10px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .hero-content .btn:hover {
+      background-color: var(--brand-2);
+    }
+
+    /* ===== ABOUT ME SECTION ===== */
+    section {
+      padding: 100px 15%;
+      scroll-margin-top: 80px; /* offset for fixed header when using anchor links */
+    }
+
+    .about {
+      position: relative;
+      background: url('images/about-bg.jpg') no-repeat center center/cover;
+      border-radius: 15px;
+      padding: 60px;
+      color: white;
+      overflow: hidden;
+    }
+
+    .about::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.55);
+      border-radius: 15px;
+      z-index: 1;
+    }
+
+    .about-container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .about-profile {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .about-profile img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+    }
+
+    .about-container h2 {
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .about-sections {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .about-box {
+      flex: 1 1 250px;
+      min-width: 200px;
+    }
+
+    .about-box h4 {
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .about-box p,
+    .about-box li {
+      color: #f2f2f2;
+      line-height: 1.6;
+    }
+
+    /* ===== PORTFOLIO SECTION ===== */
+    .portfolio {
+      text-align: center;
+    }
+
+    .portfolio h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: var(--ink-strong);
+    }
+
+    .portfolio-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .proj {
+      background-color: var(--surface-accent);
+      padding: 25px 40px;
+      border-radius: 10px;
+      font-weight: 600;
+      color: var(--ink-strong);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .proj { text-decoration: none; display: inline-block; }
+
+    .proj:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Image Gallery */
+    .gallery-box {
+      background: var(--card);
+      margin-top: 40px;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .gallery-box h4 {
+      font-size: 18px;
+      color: var(--ink-strong);
+      margin-bottom: 15px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 6px 16px rgba(36, 30, 60, 0.08);
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.04);
+      box-shadow: 0 12px 28px rgba(36, 30, 60, 0.12);
+    }
+
+    /* ===== PHOTOS SECTION ===== */
+    .photos {
+      text-align: center;
+    }
+
+    .photos h2 {
+      font-size: 2rem;
+      margin-bottom: 24px;
+      color: var(--ink-strong);
+    }
+
+    .photos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .photos-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: zoom-in;
+    }
+
+    .photos-grid img:hover { transform: scale(1.02); }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 24px;
+    }
+
+    .lightbox.is-open { display: flex; }
+
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 88vh;
+      border-radius: 12px;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.4);
+    }
+
+    .lightbox button {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--brand);
+      color: #fff;
+      border: 0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+
+    /* Respect reduced motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      html:focus-within {
+        scroll-behavior: auto;
+      }
+      .proj,
+      .gallery-grid img {
+        transition: none;
+      }
+      .proj:hover,
+      .gallery-grid img:hover {
+        transform: none;
+      }
+    }
+
+    /* ===== SUPPORT SECTION ===== */
+    .support {
+      background-color: var(--surface-accent);
+      border-radius: 15px;
+      padding: 40px;
+    }
+
+    .support h2 {
+      font-size: 2rem;
+      color: var(--ink-strong);
+      margin-bottom: 20px;
+    }
+
+    .support-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 1rem;
+      color: #3d3356;
+    }
+
+    .support-info a {
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Back to top */
+    .back-to-top {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: var(--brand);
+      color: white;
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
+      z-index: 200;
+    }
+
+    .back-to-top:hover { background: var(--brand-2); }
+    .back-to-top--visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      section {
+        padding: 80px 8%;
+      }
+
+      .about-container {
+        text-align: center;
+      }
+
+      .about-sections {
+        flex-direction: column;
+      }
+
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="photos.html">Photos</a>
+      <a href="support.html">Support</a>
+      <a href="contact.html">Contact</a>
+      <label class="theme-toggle" title="Toggle dark mode">
+        <input type="checkbox" id="themeSwitch" aria-label="Toggle dark mode">
+        <span>Dark Mode</span>
+      </label>
+    </nav>
+  </header>
+
+  <!-- ===== HERO SECTION ===== -->
+  <main id="main" role="main">
+    <section id="home" class="hero">
+      <div class="hero-slideshow" aria-hidden="true">
+        <img src="images/hero-1.jpg" alt="" class="is-active">
+        <img src="images/hero-2.jpg" alt="" loading="lazy" decoding="async">
+        <img src="images/hero-3.jpg" alt="" loading="lazy" decoding="async">
+      </div>
+      <div class="hero-content">
+        <h1>All About Me</h1>
+        <p>Crafting innovative solutions and memorable experiences through design and development. I bring ideas to life.</p>
+        <a href="#about" class="btn">Explore My Profile</a>
+      </div>
+    </section>
+
+  <!-- ===== ABOUT ME SECTION ===== -->
+  <section id="about">
+    <div class="about">
+      <div class="about-container">
+        <h2>About Me</h2>
+        <div class="about-profile">
+          <img src="kolby.jpg" alt="Portrait of Kolby F. Lacson" decoding="async">
+          <div>
+            <p>Hello! This is me — feel free to put your best photo here to make your bio feel more personal.</p>
+          </div>
+        </div>
+        <div class="about-sections">
+          <div class="about-box">
+            <h4>Personal Info</h4>
+            <p>Age: 26<br>
+            Address: Brgy Dos Hermanas, Talisay City<br>
+            Eldest Child</p>
+          </div>
+          <div class="about-box">
+            <h4>Hobbies</h4>
+            <ul>
+              <li>Playing Games</li>
+              <li>Playing Instruments</li>
+              <li>Playing Basketball</li>
+            </ul>
+          </div>
+          <div class="about-box">
+            <h4>Education</h4>
+            <p>CHMSU Talisay<br>
+            Bachelor of Science in Information Systems</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTFOLIO SECTION ===== -->
+  <section id="portfolio" class="portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid">
+      <a class="proj" href="web-development.html">Web Development</a>
+      <a class="proj" href="graphic-design.html">Graphic Design</a>
+      <a class="proj" href="web-designing.html">Web Designing</a>
+    </div>
+
+    <div class="gallery-box">
+      <h4>My Works</h4>
+      <div class="gallery-grid">
+        <img src="Website-Development.webp" alt="Project 1" loading="lazy" decoding="async">
+        <img src="graphic design.webp" alt="Project 2" loading="lazy" decoding="async">
+        <img src="web desing.webp" alt="Project 3" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact">
+    <div class="support">
+      <h2>Contact</h2>
+      <div class="support-info">
+        <p>Email: <a href="mailto:krlacson.chmsu@gmail.com">krlacson.chmsu@gmail.com</a></p>
+        <p>Location: Brgy Dos Hermanas, Talisay City</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SUPPORT SECTION ===== -->
+  <section id="support" class="support">
+    <h2>Support</h2>
+    <div class="support-info">
+      <p>FAQs | Feedback Form</p>
+      <p>Email: <a href="mailto:krlacson.chmsu@gmail.com">krlacson.chmsu@gmail.com</a></p>
+      <p>Developed by: Kolby F. Lacson</p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    &copy; 2025 Kolby F. Lacson | All Rights Reserved
+  </footer>
+  </main>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">▲</button>
+
+  <script>
+    (function() {
+      const root = document.documentElement;
+      const switchEl = document.getElementById('themeSwitch');
+      const stored = localStorage.getItem('theme');
+      if (stored === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+        if (switchEl) switchEl.checked = true;
+      }
+      switchEl && switchEl.addEventListener('change', function() {
+        if (this.checked) {
+          root.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          root.removeAttribute('data-theme');
+          localStorage.setItem('theme', 'light');
+        }
+      });
+
+      const backBtn = document.getElementById('backToTop');
+      const onScroll = () => {
+        if (window.scrollY > 400) {
+          backBtn.classList.add('back-to-top--visible');
+        } else {
+          backBtn.classList.remove('back-to-top--visible');
+        }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      backBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Hero slideshow rotation (respects reduced motion and page visibility)
+      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const slides = Array.from(document.querySelectorAll('.hero-slideshow img'));
+      let index = 0;
+      let timer = null;
+      const DURATION = 6000;
+      function showSlide(next) {
+        if (!slides.length) return;
+        slides[index].classList.remove('is-active');
+        index = next % slides.length;
+        slides[index].classList.add('is-active');
+      }
+      function start() {
+        if (prefersReduced || !slides.length) return;
+        stop();
+        timer = setInterval(() => showSlide(index + 1), DURATION);
+      }
+      function stop() {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      }
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stop(); else start();
+      });
+      start();
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me - Kolby F. Lacson</title>
+  <meta name="description" content="About Kolby F. Lacson – personal info, hobbies, and education." />
+  <style>
+    :root { --bg:#f9f8ff; --text:#333; --card:#fff; --brand:#6a5acd; --ink-strong:#3d3356; --shadow:0 3px 8px rgba(0,0,0,0.08);} 
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
+    body{background:var(--bg);color:var(--text)}
+    header{position:sticky;top:0;background:var(--card);box-shadow:var(--shadow);z-index:10}
+    nav{display:flex;justify-content:center;gap:30px;padding:15px 0}
+    nav a{text-decoration:none;color:var(--text);font-weight:500}
+    nav a:hover{color:var(--brand)}
+    main{padding:80px 12%}
+    .about{position:relative;background:url('images/about-bg.jpg') no-repeat center/cover;border-radius:15px;padding:60px;color:#fff}
+    .about:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.55);border-radius:15px}
+    .about > *{position:relative;z-index:1}
+    .about-profile{display:flex;align-items:center;gap:24px;margin-top:12px}
+    .about-profile img{width:140px;height:140px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,.85)}
+    .about-sections{display:flex;flex-wrap:wrap;gap:40px;margin-top:24px}
+    .about-box{flex:1 1 250px;min-width:200px}
+    h2{color:#fff;margin-bottom:12px}
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="photos.html">Photos</a>
+      <a href="support.html">Support</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <section class="about">
+      <h2>About Me</h2>
+      <div class="about-profile">
+        <img src="kolby.jpg" alt="Portrait of Kolby F. Lacson">
+        <p>Hello! This is me — feel free to put your best photo here to make your bio feel more personal.</p>
+      </div>
+      <div class="about-sections">
+        <div class="about-box">
+          <h4>Personal Info</h4>
+          <p>Age: 26<br>Address: Brgy Dos Hermanas, Talisay City<br>Eldest Child</p>
+        </div>
+        <div class="about-box">
+          <h4>Hobbies</h4>
+          <ul>
+            <li>Playing Games</li>
+            <li>Playing Instruments</li>
+            <li>Playing Basketball</li>
+          </ul>
+        </div>
+        <div class="about-box">
+          <h4>Education</h4>
+          <p>CHMSU Talisay<br>Bachelor of Science in Information Systems</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+

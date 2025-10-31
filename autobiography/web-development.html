@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Development - Kolby F. Lacson</title>
+  <meta name="description" content="Web development projects by Kolby F. Lacson." />
+  <style>
+    :root { --bg:#f9f8ff; --text:#333; --card:#fff; --brand:#6a5acd; --brand-2:#7b68ee; --ink-strong:#3d3356; --shadow:0 3px 8px rgba(0,0,0,0.08);} 
+    [data-theme="dark"] { --bg:#0f0e17; --text:#e6e6e6; --card:#16141f; --brand:#8a7cff; --brand-2:#a498ff; --ink-strong:#d9d4ff; --shadow:0 6px 16px rgba(0,0,0,0.35);} 
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
+    body{background:var(--bg);color:var(--text)}
+    header{position:sticky;top:0;background:var(--card);box-shadow:var(--shadow);z-index:10}
+    nav{display:flex;justify-content:center;gap:30px;padding:15px 0}
+    nav a{text-decoration:none;color:var(--text);font-weight:500}
+    nav a:hover{color:var(--brand)}
+    main{padding:60px 10%}
+    h1{color:var(--ink-strong);margin-bottom:12px}
+    .lead{color:#666;margin-bottom:24px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card{background:var(--card);border-radius:12px;box-shadow:var(--shadow);padding:18px}
+    .card img{width:100%;height:220px;object-fit:cover;border-radius:10px;margin-bottom:10px;display:block}
+    .card figcaption{color:#666;font-size:0.95rem}
+    .back{display:inline-block;margin-top:24px;color:#fff;background:var(--brand);padding:10px 16px;border-radius:10px;text-decoration:none}
+    .back:hover{background:var(--brand-2)}
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="photos.html">Photos</a>
+      <a href="support.html">Support</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Web Development</h1>
+    <p class="lead">Selected web apps and sites. Replace the placeholders with your projects.</p>
+    <div class="grid">
+      <figure class="card">
+        <img src="Website-Development.webp" alt="Website development workspace">
+        <figcaption>Website Development – overview</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="web development1.jpg" alt="Web development project 1">
+        <figcaption>Project 1</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="web development2.jpg" alt="Web development project 2">
+        <figcaption>Project 2</figcaption>
+      </figure>
+      <figure class="card">
+        <img src="web development3.png" alt="Web development project 3">
+        <figcaption>Project 3</figcaption>
+      </figure>
+    </div>
+    <a class="back" href="index.html#portfolio">Back to Portfolio</a>
+  </main>
+</body>
+</html>
+

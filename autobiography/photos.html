@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photos - Kolby F. Lacson</title>
+  <meta name="description" content="Personal photos gallery." />
+  <style>
+    :root{--bg:#f9f8ff;--text:#333;--card:#fff;--brand:#6a5acd;--ink-strong:#3d3356;--shadow:0 3px 8px rgba(0,0,0,.08)}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
+    body{background:var(--bg);color:var(--text)}
+    header{position:sticky;top:0;background:var(--card);box-shadow:var(--shadow);z-index:10}
+    nav{display:flex;justify-content:center;gap:30px;padding:15px 0}
+    nav a{text-decoration:none;color:var(--text);font-weight:500}
+    nav a:hover{color:var(--brand)}
+    main{padding:80px 12%}
+    h2{font-size:2rem;margin-bottom:24px;color:var(--ink-strong);text-align:center}
+    .photos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .photos-grid img{width:100%;height:auto;object-fit:contain;border-radius:10px;box-shadow:var(--shadow);background:#fff;padding:6px}
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="photos.html">Photos</a>
+      <a href="support.html">Support</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Photos</h2>
+    <div class="photos-grid">
+      <img src="kolby.jpg" alt="Photo 1">
+      <img src="kolby2.jpg" alt="Photo 2">
+      <img src="kolby1.jpg" alt="Photo 3">
+    </div>
+  </main>
+</body>
+</html>
+
